@@ -1,0 +1,53 @@
+import sys
+from math import sqrt, floor
+
+def main():
+	rsa_numbers = []
+	p, q = 3, 0
+
+	if len(sys.argv) < 2:
+		print("Error! Filename argument is required.")
+		return 1
+
+	try:
+		f = open(sys.argv[1], "r")
+		lines = f.readlines()
+		for line in lines:
+			rsa_numbers.append(int(line))
+		f.close()
+	except FileNotFoundError:
+		print("Error! File not found")
+		return 2
+	except:
+		print ("Error! Unable to open or read file")
+		return 4
+
+	for number in rsa_numbers:
+		root = floor(sqrt(number))
+
+		if root % 2 == 0:
+			root -= 1
+
+		half_root = floor(root / 2)
+		p = root
+
+		while (number % p != 0):
+			p -= 2;
+			if p == half_root:
+				print("Factor not in range(half root, root)")
+				p = root + half_root
+
+			while not isPrime(p):
+				p -= 2
+		q = int(number/p)
+		print(f"{number}={q}*{p}")
+
+
+def isPrime(number):
+	for divisor in range(2, number):
+		if number % divisor == 0:
+			return False
+		return True
+
+if __name__ == '__main__':
+	main()
