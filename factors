@@ -30,7 +30,7 @@ def main():
 				p += 1
 			q = int(number/p)
 
-			print("{:d}={:d}*{:d}".format(number, q, p)
+			print("{:d}={:d}*{:d}".format(number, q, p))
 			p = 2
 	else:
 		print("Error! File empty")
