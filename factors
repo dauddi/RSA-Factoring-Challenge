@@ -1,6 +1,7 @@
 import sys
 
 def main():
+
 	numbers=[]
 		
 	while len(sys.argv) < 2:
@@ -29,7 +30,7 @@ def main():
 				p += 1
 			q = int(number/p)
 
-			print(f"{number}={q}*{p}")
+			print("{:d}={:d}*{:d}".format(number, q, p)
 			p = 2
 	else:
 		print("Error! File empty")
