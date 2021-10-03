@@ -1,0 +1,39 @@
+import sys
+
+def main():
+	numbers=[]
+		
+	while len(sys.argv) < 2:
+		print("Error! File name required")
+		return 1
+	file_name = sys.argv[1]
+
+	try:
+		f = open(file_name, "r")
+		fl = f.readlines()
+		for line in fl:
+			numbers.append(int(line))
+		f.close()
+	except FileNotFoundError:
+		print("Error! File not found")
+		return 2
+	except: 
+		print (error)
+		return
+
+	p, q = 2, 0;
+
+	if (numbers):
+		for number in numbers:
+			while number % p != 0:
+				p += 1
+			q = int(number/p)
+
+			print(f"{number}={q}*{p}")
+			p = 2
+	else:
+		print("Error! File empty")
+		return 3
+
+if __name__ == "__main__":
+	main()
