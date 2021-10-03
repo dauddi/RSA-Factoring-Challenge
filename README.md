@@ -1,5 +1,5 @@
 ### RSA Factoring Challenge
-The file ###factors is a python executable that takes a file as a command line argument.
+The file **factors** is a python executable that takes a file as a command line argument.
 The file contains numbers to be factorized.
 
 The script prints to the console a formatted string containing each number and its factors.
